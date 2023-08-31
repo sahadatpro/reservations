@@ -22,7 +22,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
         ]);
-        
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@app.com',
+            'role_id' => 1,
+            'password' => bcrypt('password')
+        ]);
         User::factory(10)->create();
     }
 }
